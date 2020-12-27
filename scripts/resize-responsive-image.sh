@@ -20,6 +20,7 @@ if [[ "$EXTENSION" == "jpg" ]]; then
   for size in "${SIZES[@]}"; do
     convert "$IMAGE" \
       -resize "$size" \
+      -interlace plane \
       -set filename:t '%d/resized/%t'"-$size" '%[filename:t].jpg'
   done
 else

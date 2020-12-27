@@ -17,6 +17,7 @@ resize_root_images() {
   for image in  photos/*.jpg; do
     log_info "Resizing $image"
     convert "$image" \
+      -interlace plane \
       -resize "$ROOT_MAX_SIZE" "$image"
   done
 }
