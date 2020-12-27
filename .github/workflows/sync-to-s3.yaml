@@ -15,8 +15,7 @@ jobs:
       - name: Resize photos
         run: |
           mkdir -p photos/resized
-          for changed_file in ${{ steps.files.outputs.added }}; do
-            echo "Changed file: $changed_file"
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             filename=$(basename -- "$changed_file")
             extension="${filename##*.}"
             if [[ "$extension" == "jpg" ]]; then
