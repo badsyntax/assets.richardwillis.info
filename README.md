@@ -15,3 +15,14 @@ The following secrets need to be set:
 ### Resizing and syncing to S3
 
 Images are resized (using ImageMagick) and synced to S3 when a pull request is created.
+
+#### Image breakpoint sizes
+
+*4* breakpoints between *200px* and *1280px*:
+
+- 200
+- 725
+- 1075
+- 1280
+
+I used [https://responsivebreakpoints.com/](https://responsivebreakpoints.com/) to generate the breakpoints.
