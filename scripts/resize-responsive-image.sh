@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IMAGE="$1"
-SIZES=("300" "768" "1280")
+SIZES=("300" "618" "846" "1035" "1223" "1280")
 FILENAME=$(basename -- "$IMAGE")
 EXTENSION="${FILENAME##*.}"
 
