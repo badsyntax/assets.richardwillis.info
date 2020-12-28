@@ -1,12 +1,18 @@
 # assets.richardwillis.info
 
+My source assets for richardwillis.info.
+
+Images are generated and synced to S3 by adding a new source image to [./photos](./photos) and sending a PR. 
+
+After copying files into photos, be sure to run `./scripts/resize-root-images.sh`;
+
 ## Resizing images locally
+
+You'll need the following deps installed:
 
 ```sh
 brew install imagemagick webp
 ```
-
-After copying files into photos, be sure to run `./scripts/resize-root-images.sh`;
 
 ## GitHub Actions
 
@@ -18,13 +24,9 @@ The following secrets need to be set:
 - `AWS_S3_BUCKET`
 - `AWS_SECRET_ACCESS_KEY`
 
-### Resizing and syncing to S3
+## Image breakpoint sizes
 
-Images are resized (using ImageMagick) and synced to S3 when a pull request is created.
-
-#### Image breakpoint sizes
-
-*5* breakpoints between *320px* and *1280px*:
+**5** breakpoints between **320px** and **1280px**:
 
 - 320
 - 640
