@@ -24,11 +24,10 @@ Images are resized (using ImageMagick) and synced to S3 when a pull request is c
 
 #### Image breakpoint sizes
 
-*4* breakpoints between *200px* and *1280px*:
+*5* breakpoints between *320px* and *1280px*:
 
-- 200
-- 725
-- 1075
+- 320
+- 640
+- 768
+- 1024
 - 1280
-
-I used [https://responsivebreakpoints.com/](https://responsivebreakpoints.com/) to generate the breakpoints.
