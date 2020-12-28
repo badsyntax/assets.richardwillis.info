@@ -1,5 +1,11 @@
 # assets.richardwillis.info
 
+## Resizing images locally
+
+```sh
+brew install imagemagick webp
+```
+
 After copying files into photos, be sure to run `./scripts/resize-root-images.sh`;
 
 ## GitHub Actions
