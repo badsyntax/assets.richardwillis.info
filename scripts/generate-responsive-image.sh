@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IMAGE="$1"
-SIZES=("200" "725" "1075" "1280")
+SIZES=("420" "640" "768" "1024" "1280")
 FILENAME=$(basename -- "$IMAGE")
 EXTENSION="${FILENAME##*.}"
 
@@ -25,11 +25,15 @@ if [[ "$EXTENSION" == "jpg" ]]; then
   for size in "${SIZES[@]}"; do
     convert "$IMAGE" \
       -resize "$size" \
-      -interlace plane \
+      -interlace Plane \
+      -quality 85 \
+      -strip \
       -set filename:t '%d/resized/%t'"-$size" '%[filename:t].jpg'
     log_info "Generated resized jpg for $size"
     convert "$IMAGE" \
       -resize "$size" \
+      -quality 85 \
+      -strip \
       -set filename:t '%d/resized/%t'"-$size" '%[filename:t].webp'
     log_info "Generated resized webp for $size"
   done
