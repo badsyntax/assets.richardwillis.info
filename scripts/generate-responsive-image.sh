@@ -5,6 +5,11 @@ SIZES=("200" "725" "1075" "1280")
 FILENAME=$(basename -- "$IMAGE")
 EXTENSION="${FILENAME##*.}"
 
+log_info_main() {
+  local MESSAGE=$1
+  echo "--> $MESSAGE"
+}
+
 log_info() {
   local MESSAGE=$1
   echo "----> $MESSAGE"
@@ -16,13 +21,19 @@ log_error() {
 }
 
 if [[ "$EXTENSION" == "jpg" ]]; then
-  log_info "Resizing $IMAGE"
+  log_info_main "Generating images for $IMAGE"
   for size in "${SIZES[@]}"; do
     convert "$IMAGE" \
       -resize "$size" \
       -interlace plane \
       -set filename:t '%d/resized/%t'"-$size" '%[filename:t].jpg'
+    log_info "Generated resized jpg for $size"
+    convert "$IMAGE" \
+      -resize "$size" \
+      -set filename:t '%d/resized/%t'"-$size" '%[filename:t].webp'
+    log_info "Generated resized webp for $size"
   done
+  log_info_main "All Done!"
 else
   log_error "Not a jpg image"
   exit 1

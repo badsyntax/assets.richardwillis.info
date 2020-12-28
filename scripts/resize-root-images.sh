@@ -20,6 +20,7 @@ resize_root_images() {
       -interlace plane \
       -resize "$ROOT_MAX_SIZE" "$image"
   done
+  log_info_main "All Done!"
 }
 
 resize_root_images
