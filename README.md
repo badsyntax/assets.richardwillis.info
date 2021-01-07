@@ -1,6 +1,6 @@
 # assets.richardwillis.info
 
-My source assets for richardwillis.info.
+My source assets for https://richardwillis.info.
 
 Images are generated and synced to S3 by adding a new source image to [./photos](./photos) and sending a PR. 
 
