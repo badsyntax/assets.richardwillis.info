@@ -33,3 +33,7 @@ The following secrets need to be set:
 - 768
 - 1024
 - 1280
+
+## More Info
+
+See https://richardwillis.info/blog/responsive-images
