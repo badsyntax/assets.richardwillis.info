@@ -2,9 +2,13 @@
 
 My source assets for https://richardwillis.info.
 
-Images are generated and synced to S3 by adding a new source image to [./photos](./photos) and sending a PR. 
+Images are generated and synced to S3 with GitHub Actions.
 
-After copying files into photos, be sure to run `./scripts/resize-root-images.sh`;
+## Adding images
+
+- Add new source images to [./photos](./photos)
+- Run `./scripts/resize-root-images.sh`
+- Send a PR to sync the images
 
 ## Resizing images locally
 
@@ -14,15 +18,11 @@ You'll need the following deps installed:
 brew install imagemagick webp
 ```
 
-## GitHub Actions
+Generate images:
 
-### Secrets
-
-The following secrets need to be set:
-
-- `AWS_ACCESS_KEY_ID`
-- `AWS_S3_BUCKET`
-- `AWS_SECRET_ACCESS_KEY`
+```bash
+./scripts/generate-responsive-image.sh ./photos/image.jpg
+```
 
 ## Image breakpoint sizes
 
@@ -33,6 +33,14 @@ The following secrets need to be set:
 - 768
 - 1024
 - 1280
+
+## Secrets
+
+The following secrets need to be set for the CI workflows to run:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_S3_BUCKET`
+- `AWS_SECRET_ACCESS_KEY`
 
 ## More Info
 
